@@ -38,7 +38,7 @@
   <header id="header" class="fixed-top ">
     <div class="container d-flex align-items-center justify-content-between">
 
-      <h1 class="logo m-1 p-2"><a href="index.html">ConstructionTools</a></h1>
+      <h1 class="logo m-1 p-2"><a href="/">ConstructionTools</a></h1>
       <!-- Uncomment below if you prefer to use an image logo -->
       <!-- <a href="index.html" class="logo"><img src="static/assets/img/logo.png" alt="" class="img-fluid"></a>-->
 
@@ -51,9 +51,9 @@
           <li><a class="nav-link scrollto" href="/profile">My Profile</a></li>
           <li class="dropdown"><a href="#"><span>Sign-in</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
-              <li><a href="/signup">Sign-Up</a></li>
-              <li><a href="/login">Log-In</a></li>
-              <li><a href="/logout">Log-Out</a></li>
+              <li><a href="/auth/signup">Sign-Up</a></li>
+              <li><a href="/auth/login">Log-In</a></li>
+              <li><a href="/auth/logout">Log-Out</a></li>
               
                
             </ul>
@@ -70,10 +70,9 @@
   <!-- ======= Hero Section ======= -->
   <section id="hero">
     <div class="hero-container">
-      <h3>Welcome to <strong>ConstructionTools</strong></h3>
-      <h1>We're Creative Agency</h1>
-      <h2>We are team of talented designers making websites with Bootstrap</h2>
-      <a href="#about" class="btn-get-started scrollto">Buy now! Don't sleep on it.</a>
+      {% block content %}
+      
+    {% endblock content %}
     </div>
   </section><!-- End Hero -->
 

@@ -1,5 +1,36 @@
 {% extends "base.html" %}
 {% block title %}Home{% endblock title %}
+{% block content %}
+<div class="card bg-light p-4" >
+<h4 class = "text-dark" >Sign-Up</h4>
+
+<form action="/auth/signup/" method="post">{% csrf_token %}
+  <br>
+
+
+  <label for="email"><em>Email:</em></label>
+  <div class="form-group">
+  <input type="email" class="form-control p-2" id="email" name="email" required>
+  </div>
+
+  <label for="password"><em>Password</em></label>
+  <div class="form-group">
+  <input type="password" class="form-control p-2" id="password" name="password" required>
+  </div>
+
+  <label for="confpass"><em>Confirm Password</em></label>
+  <div class="form-group">
+  <input type="password" class="form-control p-2" id="confpass" name="confpass" required>
+  </div>
+  <button type="submit" class="btn">SignIn</button>
+
+  <br>
+  Already a User? <a href="/auth/login/">Login</a>
+  <br>
+</form>
+
+</div>
+{% endblock content %}
 {% block body %}
 <!-- ======= Portfolio Section ======= -->
     <section id="portfolio" class="portfolio">
