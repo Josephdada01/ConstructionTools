@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% block title %}Sig-Up{% endblock title %}
+{% block title %}Sign Up{% endblock title %}
 {% block content %}
 <div class="card bg-light p-5" >
 
@@ -12,7 +12,7 @@
     {% endfor %}
 
 
-<h4 class = "text-dark" >Sign-Up</h4>
+<h4 class = "text-dark" >Sign Up</h4>
 
 <form action="/auth/signup/" method="post">{% csrf_token %}
   <br>
@@ -33,10 +33,10 @@
   <input type="password" class="form-control p-2" id="confirm_password" name="confirm_password" required>
   </div>
   <br>
-  <button type="submit" class="btn btn-dark">SignIn</button>
+  <button type="submit" class="btn btn-dark">Sign In</button>
 
   <br>
-  Already a User? <a href="/auth/login/">Login</a>
+  Already a User? <a href="/auth/login/">Log In</a>
   <br>
 </form>
 
