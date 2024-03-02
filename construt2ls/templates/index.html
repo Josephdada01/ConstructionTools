@@ -1,36 +1,8 @@
 {% extends "base.html" %}
 {% block title %}Home{% endblock title %}
 {% block content %}
-<div class="card bg-light p-3" >
-<h4 class = "text-dark" >Sign-Up</h4>
+<h1> A Market Place for your Construction Tools.. </h1>
 
-<form action="/auth/signup/" method="post">{% csrf_token %}
-  <br>
-
-
-  <label for="email"><em>Email:</em></label>
-  <div class="form-group">
-  <input type="email" class="form-control p-2" id="email" name="email" required>
-  </div>
-
-  <label for="pass_word"><em>Password</em></label>
-  <div class="form-group">
-  <input type="password" class="form-control p-2" id="pass_word" name="pass_word" required>
-  </div>
-
-  <label for="confirm_password"><em>Confirm Password</em></label>
-  <div class="form-group">
-  <input type="password" class="form-control p-2" id="confirm_password" name="confirm_password" required>
-  </div>
-  <br>
-  <button type="submit" class="btn btn-dark">SignIn</button>
-
-  <br>
-  Already a User? <a href="/auth/login/">Login</a>
-  <br>
-</form>
-
-</div>
 {% endblock content %}
 {% block body %}
 <!-- ======= Portfolio Section ======= -->
