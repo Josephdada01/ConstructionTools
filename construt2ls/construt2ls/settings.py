@@ -114,6 +114,15 @@ USE_I18N = True
 
 USE_TZ = True
 
+# for sending emails no reply email notification
+
+EMAIL_HOST='smtpout.secureserver.net'
+EMAIL_HOST_USER='constructiontoolsng@gmail.com'
+EMAIL_HOST_PASSWORD='construct2ls'
+EMAIL_PORT=587
+EMAIL_USE_TLS=True
+EMAIL_BACKEND='django.core.mail.backends.smpt.EmailBackend'
+
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
