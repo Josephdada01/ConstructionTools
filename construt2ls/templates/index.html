@@ -9,6 +9,15 @@
     <section id="portfolio" class="portfolio">
       <div class="container">
 
+    {% for message in messages %}
+
+    <div class="alert alert-{{message.tags}} alert-dismissible fade show" role="alert">
+    <strong>{{message}}</strong>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" arial-label="close"></button>
+    </div>
+    
+    {% endfor %}
+
         <div class="section-title">
           <h2>Portfolio</h2>
           <h3>Check our <span>Portfolio</span></h3>

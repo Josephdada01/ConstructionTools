@@ -92,8 +92,7 @@ def handlelogin(request):
     return render(request, 'login.html')
 
 
-
-
-
 def handlelogout(request):
-    return redirect(request, '/auth/login')
+    logout(request)
+    messages.info(request, "You have successfully logged out")
+    return redirect('/auth/login')
