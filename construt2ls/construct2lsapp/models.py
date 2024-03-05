@@ -7,3 +7,6 @@ class Contact(models.Model):
     description = models.TextField(max_length=1000)
     phone_num = models.IntegerField()
 
+    def __str__(self):
+        return self.name
+
