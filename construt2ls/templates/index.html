@@ -1,47 +1,60 @@
-{% extends "base.html" %}
-{% block title %}Home{% endblock title %}
+{% extends "base.html" %} 
+{% block title %}Home{% endblock title %} 
 {% block content %}
-<h1> A Market Place for your Construction Tools.. </h1>
+<h3>A Market Place for your Construction Tools..</h3>
 
-{% endblock content %}
-{% block body %}
-{% load static  %}
+{% endblock content %} 
+{% block body %} 
+{% load static %}
 <!-- ======= Portfolio Section ======= -->
-    <section id="portfolio" class="portfolio">
-      <div class="container">
-
+<section id="portfolio" class="portfolio">
+  <div class="container">
     {% for message in messages %}
 
-    <div class="alert alert-{{message.tags}} alert-dismissible fade show" role="alert">
-    <strong>{{message}}</strong>
-    <button type="button" class="btn-close" data-bs-dismiss="alert" arial-label="close"></button>
+    <div
+      class="alert alert-{{message.tags}} alert-dismissible fade show"
+      role="alert"
+    >
+      <strong>{{message}}</strong>
+      <button
+        type="button"
+        class="btn-close"
+        data-bs-dismiss="alert"
+        arial-label="close"
+      ></button>
     </div>
-    
+
     {% endfor %}
 
-        <div class="section-title">
-          <h2>Welcome To The Biggest online Store for your Construction Tools</h2>
-          <h3>Check our <span>Poducts</span></h3>
-          
-        </div>
+    <div class="section-title">
+      <h2>Welcome To The Biggest online Store for your Construction Tools</h2>
+      <h3>Check our <span>Poducts</span></h3>
+    </div>
 
-        {% for product, range, nSlides in allprods  %}
+    {% for product, range, nSlides in allprods %}
 
-        <h3 class="my-3 text-center text-success bg-light">
+    <h3 class="my-3 text-center text-success bg-light">
       {{product.0.category}} Flashsale
     </h3>
 
     <div class="container">
       <div class="row">
-
         {% for i in product %}
         <div class="col-md-3 mt-3">
-          <img src="/media/{{i.image}}" class="card-img-top" alt="not found" height="200px" width="150px" />
+          <img
+            src="/media/{{i.image}}"
+            class="card-img-top"
+            alt="not found"
+            height="200px"
+            width="150px"
+          />
           <div class="card-body">
-            <h5 class="card-title mt-2" id="namepr{{i.id}}">{{i.product_name}}</h5>
+            <h5 class="card-title mt-2" id="namepr{{i.id}}">
+              {{i.product_name}}
+            </h5>
             <p class="card-text">{{i.desc|slice:"0:53"}}...</p>
             <h6 class="card-title mb-3">
-              Price:<span id="pricepr{{i.id}}">{{i.price}}</span>
+              Price:<span id="pricepr{{i.id}}"> $ {{i.price}}</span>
             </h6>
             <span id="divpr{{i.id}}" class="divpr">
               <button id="pr{{i.id}}" class="btn btn-danger cart btn-sm mt-0">
@@ -50,23 +63,18 @@
             </span>
 
             <a href="/media/{{i.image}}">
-              <button class="btn btn-dark btn-sm cart"><i class="fa-solid fa-eye"></i></button></a
-            >
+              <button class="btn btn-dark btn-sm cart">
+                <i class="fa-solid fa-eye"></i></button
+            ></a>
           </div>
         </div>
 
         {% endfor %}
       </div>
     </div>
-        
-        {% endfor %}
 
-
-
-
-
-
-
-      </div>  
-    </section><!-- End Portfolio Section -->
+    {% endfor %}
+  </div>
+</section>
+<!-- End Portfolio Section -->
 {% endblock body %}
