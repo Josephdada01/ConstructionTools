@@ -1999,3 +1999,7 @@ section {
   color: #fff;
   text-decoration: none;
 }
+.custom-navy-blue {
+  background-color: #001f3f; /* This is a deep navy blue color */
+  color: #001f3f;
+}

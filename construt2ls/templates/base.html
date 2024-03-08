@@ -48,8 +48,16 @@
           <li><a class="nav-link scrollto active" href="/">Home</a></li>
           <li><a class="nav-link scrollto" href="/blog">Blog</a></li>
           <li><a class="nav-link scrollto" href="/about">About Us</a></li>
-          <li><a class="nav-link scrollto" href="/orders">Orders</a></li>
+          <li><a class="nav-link scrollto" href="/checkout">Checkout</a></li>
           <li><a class="nav-link scrollto" href="/profile">My Profile</a></li>
+          <!--<li><a class="nav-link scrollto bg-danger p-2 m-3" href="">Cart</a></li>-->
+          <!-- for cart button design-->
+          <button type="button" class="nav-link scrollto bg-danger p-2 m-3 text-white"
+          id="popcart" data-container="body" data-toggle="popover" data-placement="botton"
+          data-html="true"> Cart (<span id="cart">0</span>) </button>
+          <!--<button type="button" class="custom-navy-blue" scrollto p-2 m-3 text-white"
+          id="popcart" data-container="body" data-toggle="popover" data-placement="botton"
+          data-html="true"> Cart (<span id="cart">0</span>) </button>-->
 
           {% if request.user.is_authenticated  %}
           <li><a href="/auth/logout">Log-Out</a></li>
@@ -66,7 +74,6 @@
           </li>
           {% endif %}
           
-          <li><a class="nav-link scrollto bg-danger p-2 m-3" href="">Cart</a></li>
           <li><a class="nav-link scrollto bg-dark p-2 m-3" href="/contact">Contact Us</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
