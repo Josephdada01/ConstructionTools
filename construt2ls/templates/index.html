@@ -1,8 +1,13 @@
-{% extends "base.html" %} {% block title %}Home{% endblock title %} {% block
-content %}
+{% extends "base.html" %}
+ {% block title %}
+ Home
+ {% endblock title %} 
+ {% block content %}
 <h3>A Market Place for your Construction Tools..</h3>
 
-{% endblock content %} {% block body %} {% load static %}
+{% endblock content %} 
+{% block body %} 
+{% load static %}
 <!-- ======= Portfolio Section ======= -->
 <section id="portfolio" class="portfolio">
   <div class="container">
@@ -55,7 +60,7 @@ content %}
             </h6>
             <span id="divpr{{i.id}}" class="divpr">
               <button id="pr{{i.id}}" class="btn btn-danger cart btn-sm mt-0">
-                AddToCart <i class="fa-solid fa-cart-shopping"></i>
+                AddToCart <!--<i class="fa-solid fa-cart-shopping">-</i>-->
               </button>
             </span>
 
@@ -210,5 +215,7 @@ content %}
     updateCart(cart);
   });
 </script>
+
+
 
 {% endblock body %}
