@@ -149,7 +149,7 @@ def handlerequest(request):
 def verify_flutterwave_checksum(data, checksum):
     # Verify the checksum using Flutterwave SDK or your preferred method
     # Example using Flutterwave SDK:
-    flutterwave = Flutterwave(public_key='YOUR_FLUTTERWAVE_PUBLIC_KEY', secret_key='YOUR_FLUTTERWAVE_SECRET_KEY', environment='sandbox')
+    flutterwave = Flutterwave(public_key='FLWPUBK_TEST-45e7643c3a43b48aa033918df7fabf23-X', secret_key='FLWSECK_TEST-ad146de7a6dd343642fbfe9f07c1e260-X', environment='sandbox')
     is_valid_checksum = flutterwave.Transaction.verify_checksum(data, checksum)
     return is_valid_checksum
 
