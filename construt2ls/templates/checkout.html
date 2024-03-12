@@ -5,7 +5,7 @@ Check Out
 
 {% block content %}
 <!-- Content: Welcome message -->
-<h1>Welcome to Dhamaka Sale</h1>
+<h1>Thank you for shopping with us, this is the checkout page</h1>
 {% endblock content %} 
 
 {% block body %} 
@@ -39,7 +39,7 @@ Check Out
           <!-- Cart total information -->
           <nav aria-label="breadcrumb">
             <ol class="breadcrumb mt-3">
-              <li class="breadcrumb-item active" aria-current="page">Total Price: <b>$ <span id="totalprice"></span> <span id="amount"></span></b>. Enter your details below & place your order. Thanks for using Shopping Cart</li>
+              <li class="breadcrumb-item active" aria-current="page">Total Price: <b>$ <span id="totalprice">{{ total_price }}</span></b>. Enter your details below & place your order. Thanks for using Shopping Cart</li>
             </ol>
           </nav>
         </div>
@@ -114,7 +114,56 @@ Check Out
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
 
-<!-- JavaScript code for cart functionality -->
+<!--JavaScript code for cart functionality-->
+<script>
+// Check if cart exists in local storage, initialize if not
+if (localStorage.getItem('cart') == null) {
+    var cart = {};
+} else {
+    cart = JSON.parse(localStorage.getItem('cart'));
+}
+
+// Display cart items and total price
+var sum = 0;
+var totalPrice = 0;
+if ($.isEmptyObject(cart)) {
+    // If cart is empty, display a message
+    mystr = `<p>Your cart is empty, please add some items to your cart before checking out!</p>`
+    $('#items').append(mystr);
+} else {
+    // Iterate over cart items and display them
+    for (item in cart) {
+        let name = cart[item][1];
+        let qty = cart[item][0];
+        let itemPrice = cart[item][2];
+        sum = sum + qty;
+        totalPrice = totalPrice + qty * itemPrice;
+
+        mystr = `<li class="list-group-item d-flex justify-content-between align-items-center">
+                    ${name}
+                    <div><b> Price : ${itemPrice}</b></div>
+                    <span class="badge badge-primary badge-pill">${qty}</span>
+                </li>`
+        $('#items').append(mystr);
+    }
+    // Update total price
+    $('#totalprice').text(totalPrice); // Update total price
+}
+
+// Set hidden fields to submit cart items and total price
+$('#itemsJson').val(JSON.stringify(cart));
+var test = `${totalPrice}`;
+$('#amt').val(test);
+
+// If thank variable exists (order placed), display a thank you message and clear cart
+{% if thank %}
+alert('Thanks for ordering with us. Your order is is {{id}}. Use it to track your order using our order tracker');
+localStorage.clear();
+document.location = "/";
+{% endif %}
+</script>
+
+<!-- JavaScript code for cart functionality
 <script>
 // Check if cart exists in local storage, initialize if not
 if (localStorage.getItem('cart') == null) {
@@ -163,4 +212,4 @@ document.location = "/";
 {% endif %}
 </script>
 
-{% endblock body %}
+{% endblock body %} -->

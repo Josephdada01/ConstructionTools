@@ -56,11 +56,11 @@
             </h5>
             <p class="card-text">{{i.desc|slice:"0:53"}}...</p>
             <h6 class="card-title mb-3">
-              Price:<span id="pricepr{{i.id}}"> $ {{i.price}}</span>
+              Price:<span id="pricepr{{i.id}}"> {{i.price}}</span> <!-- this is the place i put the dollar sign -->
             </h6>
             <span id="divpr{{i.id}}" class="divpr">
               <button id="pr{{i.id}}" class="btn btn-danger cart btn-sm mt-0">
-                AddToCart <i class="fa-solid fa-cart-shopping"></i>
+                Add To Cart <i class="fa-solid fa-cart-shopping"></i>
               </button>
             </span>
 
@@ -155,7 +155,7 @@
       document.getElementById("div" + item).innerHTML =
         '<button id="' +
         item +
-        '" class="btn btn-danger cart">AddtoCard <i class="fa-solid fa-cart-shopping"></i></button>';
+        '" class="btn btn-danger cart">Add To Cart <i class="fa-solid fa-cart-shopping"></i></button>';
     }
     localStorage.clear();
     cart = {};

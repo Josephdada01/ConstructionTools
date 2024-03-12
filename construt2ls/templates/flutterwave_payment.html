@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Flutterwave Payment</title>
+</head>
+<body onload="submitForm()">
+<h1>Redirecting you to the payment gateway....</h1>
+<h1>Please wait, do not refresh or close this page....</h1>
+
+<form id="paymentForm" action="https://sandbox-flw-web-v3.herokuapp.com/pay/dq4phgwz6jim" method="post">
+    {% csrf_token %}
+    {% for key, value in payment_data.items %}
+    <input type="hidden" name="{{ key }}" value="{{ value }}">
+    {% endfor %}
+    <input type="submit" value="Proceed to Payment">
+</form>
+
+<script>
+    function submitForm() {
+        document.getElementById("paymentForm").submit();
+    }
+</script>
+</body>
+</html>
