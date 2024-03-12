@@ -46,12 +46,25 @@ class Orders(models.Model):
         return self.name
 
 
+"""
 class OrderUpdate(models.Model):
-    """Handling the orderupdate"""
+    Handling the orderupdate
     update_id = models.AutoField(primary_key=True)
     order_id = models.IntegerField(default="")
     update_desc = models.CharField(max_length=5000)
     delivered=models.BooleanField(default=False)
+    timestamp = models.DateField(auto_now_add=True)
+
+    def __str__(self):
+        return self.update_desc[0:7] + "..."
+"""
+
+class OrderUpdate(models.Model):
+    """Handling the orderupdate"""
+    update_id = models.AutoField(primary_key=True)
+    order = models.ForeignKey(Orders, on_delete=models.CASCADE)
+    update_desc = models.CharField(max_length=5000)
+    delivered = models.BooleanField(default=False)
     timestamp = models.DateField(auto_now_add=True)
 
     def __str__(self):
