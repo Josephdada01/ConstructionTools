@@ -42,28 +42,36 @@
   <header id="header" class="fixed-top ">
     <div class="container d-flex align-items-center justify-content-between">
 
-      <h1 class="logo m-1 p-2"><a href="/">Tools</a></h1>
+      <h1 class="logo m-1 p-2" style="color: #1B1A55 !important; font-weight: bold;"><a href="/">Tools</a></h1>
+
       <!-- Uncomment below if you prefer to use an image logo -->
       <!--<a href="/" class="logo"><img src="{% static 'images/logo.png' %}" alt="logo" class="img-fluid"><em> Tools </em></a>-->
       
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a class="nav-link scrollto active" href="/">Home</a></li>
-          <li><a class="nav-link scrollto" href="/blog">Blog</a></li>
-          <li><a class="nav-link scrollto" href="/about">About Us</a></li>
-          <li><a class="nav-link scrollto" href="/checkout">Checkout</a></li>
-          <li><a class="nav-link scrollto" href="/profile">My Profile<i class="fa-regular fa-square-user"></i> </a></li>
+          <li><a class="nav-link scrollto active"  style="color: #1B1A55; font-weight: bold; font-size: 20px" href="/">Home</a></li>
+          <li><a class="nav-link scrollto" style="color: #1B1A55; font-weight: bold; font-size: 17px" href="/blog">Blog</a></li>
+          <li><a class="nav-link scrollto" style="color: #1B1A55; font-weight: bold; font-size: 17px"href="/about">About Us</a></li>
+          <li><a class="nav-link scrollto" style="color: #1B1A55; font-weight: bold; font-size: 17px"href="/checkout">Checkout</a></li>
+          <li><a class="nav-link scrollto" style="color: #1B1A55; font-weight: bold; font-size: 17px"href="/profile">My Profile<i class="fa-regular fa-square-user"></i> </a></li>
           <!--<li><a class="nav-link scrollto bg-danger p-2 m-3" href="">Cart</a></li>-->
           <!-- for cart button design-->
-          <button type="button" class="nav-link scrollto bg-danger p-3 m-2 text-white" id="popcart" data-container="body" data-toggle="popover" data-placement="bottom" data-html="true" ><i class="fa-solid fa-cart-shopping"></i>  Cart (<span id="cart">0</span>)
+          <!--<button type="button" class="nav-link scrollto " id="popcart" data-container="body" data-toggle="popover" data-placement="bottom" data-html="true" ><i class="fa-solid fa-cart-shopping"></i>  Cart (<span id="cart">0</span>)
+          </button>-->
+          <<button type="button" class="nav-link scrollto" id="popcart" data-container="body" data-toggle="popover" data-placement="bottom" data-html="true" style="background-color: #1B1A55; color: #fff; border: none; border-radius: 8px; padding: 10px 20px; font-size: 16px; font-weight: bold; cursor: pointer;">
+              <i class="fa-solid fa-cart-shopping" style="margin-right: 10px;"></i>Cart (<span id="cart" style="font-weight: normal;">0</span>)
           </button>
 
-          <!--<button type="button" class="custom-navy-blue" scrollto p-2 m-3 text-white"
-          id="popcart" data-container="body" data-toggle="popover" data-placement="botton"
-          data-html="true"> Cart (<span id="cart">0</span>) </button>-->
 
           {% if request.user.is_authenticated  %}
-          <li><a  class="nav-link scrollto" href="/auth/logout/">Logout <i class="fa-solid fa-right-from-bracket"></i>
+          <li>
+            <a class="nav-link scrollto" href="/auth/logout/" style="color: #fff; font-weight: bold; text-decoration: none; display: flex; align-items: center;">
+              Logout 
+              <i class="fa-solid fa-right-from-bracket" style="margin-left: 5px;"></i>
+            </a>
+          </li>
+
+          <!--<li><a  class="nav-link scrollto" href="/auth/logout/">Logout <i class="fa-solid fa-right-from-bracket"></i>-->
 
 
           
@@ -78,7 +86,13 @@
           </li>
           {% endif %}
           
-          <li><a class="nav-link scrollto bg-dark p-3 m-2" href="/contact">Contact <i class="fa-solid fa-message-middle"></i></a></li>
+            <li>
+              <a class="nav-link scrollto" href="/contact" style="background-color: #1B1A55; color: #fff; padding: 0.65rem 1rem; font-weight: bold; margin: 0.5rem; border-radius: 6px; text-decoration: none; display: flex; align-items: center;">
+                Contact 
+                <i class="fa-solid fa-message-middle" style="margin-left: 5px;"></i>
+              </a>
+            </li>
+
           
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
@@ -113,7 +127,7 @@
       <div class="container">
         <div class="row">
 
-          <div class="col-lg-3 col-md-6 footer-contact">
+          <div class="col-lg-4 col-md-6 footer-contact">
             <h3>ConstructionTools</h3>
             <p>
               Peaceland Estate <br>
@@ -124,7 +138,7 @@
             </p>
           </div>
 
-          <div class="col-lg-2 col-md-6 footer-links">
+          <div class="col-lg-4 col-md-6 footer-links">
             <h4>Useful Links</h4>
             <ul>
               <li><i class="bx bx-chevron-right"></i> <a href="/">Home</a></li>
@@ -135,7 +149,7 @@
             </ul>
           </div>
 
-          <div class="col-lg-3 col-md-6 footer-links">
+          <div class="col-lg-4 col-md-6 footer-links">
             <h4>Our Services</h4>
             <ul>
               <li><i class="bx bx-chevron-right"></i> <a href="#">Web Design</a></li>
@@ -146,13 +160,13 @@
             </ul>
           </div>
 
-          <div class="col-lg-4 col-md-6 footer-newsletter">
+          <!--<div class="col-lg-4 col-md-6 footer-newsletter">
             <h4>Join Our Newsletter</h4>
             <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p>
             <form action="" method="post">
               <input type="email" name="email"><input type="submit" value="Subscribe">
             </form>
-          </div>
+          </div>-->
 
         </div>
       </div>
@@ -161,22 +175,21 @@
     <div class="container d-md-flex py-4">
 
       <div class="me-md-auto text-center text-md-start">
-        <div class="copyright">
-          &copy; Copyright <strong><span>ConstructionTools</span></strong>. All Rights Reserved
-        </div>
-        <div class="credits">
-          <!-- All the links in the footer should remain intact. -->
-          <!-- You can delete the links only if you purchased the pro version. -->
-          <!-- Licensing information: https://bootstrapmade.com/license/ -->
-          <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/tempo-free-onepage-bootstrap-theme/ -->
-          Built by: <em>Ridwan Dada</em> <p>You can follow me on Twitter, Linkedin, and also check my work on Github </p><!--<a href="">Ridwan Dada. And thats my Socials</a>-->
-        </div>
-      </div>
+    <div class="copyright">
+        &copy; Copyright <strong><span>ConstructionTools</span></strong>. All Rights Reserved
+    </div>
+    <div class="credits">
+        Built by: <em>Ridwan Dada</em>
+        <p>You can follow me on Twitter, Linkedin, and also check my work on Github </p>
+        <!-- <a href="">Ridwan Dada. And thats my Socials</a> -->
+    </div>
+    </div>
       <div class="social-links text-center text-md-right pt-3 pt-md-0">
-        <a href="https://x.com/Joe_self_phu?t=fZWs8fmC5anMqWh3YzkrxA&s=09" class="twitter"><i class="bx bxl-twitter"></i></a>
-        <a href="https://github.com/Josephdada01" class="github"><i class="bx bxl-github"></i></a>
-        <a href="https://www.linkedin.com/in/dada-joseph-484040263" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+        <a href="https://x.com/Joe_self_phu?t=fZWs8fmC5anMqWh3YzkrxA&s=09" class="twitter"><i class="bx bxl-twitter" style="color: #124076;"></i></a>
+        <a href="https://github.com/Josephdada01" class="github"><i class="bx bxl-github" style="color: #124076;"></i></a>
+        <a href="https://www.linkedin.com/in/dada-joseph-484040263" class="linkedin"><i class="bx bxl-linkedin" style="color: #124076;;"></i></a>
       </div>
+
     </div>
   </footer><!-- End Footer -->
 

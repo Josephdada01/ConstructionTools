@@ -13,7 +13,7 @@ a:hover {
   text-decoration: none;
 }
 
-h1,
+
 h2,
 h3,
 h4,
@@ -32,7 +32,7 @@ h6 {
   right: 15px;
   bottom: 15px;
   z-index: 996;
-  background: #e43c5c;
+  background: green;
   width: 40px;
   height: 40px;
   border-radius: 50px;
@@ -46,10 +46,10 @@ h6 {
 }
 
 .back-to-top:hover {
-  background: #e9607a;
+  background: #141313;
   color: #fff;
 }
-
+/* #e9607a */
 .back-to-top.active {
   visibility: visible;
   opacity: 1;
@@ -228,6 +228,7 @@ h6 {
     left: -100%;
   }
 }
+
 
 /**
 * Mobile Navigation 
@@ -1982,7 +1983,7 @@ section {
 #footer .social-links a {
   font-size: 18px;
   display: inline-block;
-  background: #e43c5c;
+  background: #503c3c;
   color: #fff;
   line-height: 1;
   padding: 8px 0;
