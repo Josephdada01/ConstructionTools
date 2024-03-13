@@ -392,17 +392,14 @@ def profile(request):
     if not request.user.is_authenticated:
         messages.warning(request, "Login & Try Again")
         return redirect('/auth/login')
-    
+
     currentUser = request.user.username
     items = Orders.objects.filter(email=currentUser)
     rid = ""
     for i in items:
-        print(i.order_id)
-        # print(i.order_id)
-        myid = i.order_id 
+        myid = i.oid 
         rid = myid.replace("ShopyCart", "")
-        print(rid)
-    
+
     status = None  # Initialize status to None
     if rid:  # Check if rid is not an empty string
         try:
@@ -413,10 +410,5 @@ def profile(request):
             # Log the error or handle it appropriately
             pass
 
-    if status is not None:
-        for j in status:
-            print(j.update_desc)
-
-    context = {"items": items}
-    print(currentUser)
+    context = {"items": items, "status": status}  # Include status in the context
     return render(request, "profile.html", context)
