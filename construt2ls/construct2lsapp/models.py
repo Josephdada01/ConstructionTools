@@ -27,7 +27,7 @@ class Product(models.Model):
 
 
 class Orders(models.Model):
-    """class that handle all the orders"""
+    """class that handle all the order"""
     order_id = models.AutoField(primary_key=True)
     items_json =  models.CharField(max_length=5000)
     amount = models.DecimalField(max_digits=10, decimal_places=2, default=0.00)
