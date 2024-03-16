@@ -1,5 +1,5 @@
 from django.db import models
-
+from django.contrib.auth.models import User
 # Create your models here.
 class Contact(models.Model):
     name = models.CharField(max_length=30)
@@ -30,7 +30,7 @@ class Orders(models.Model):
     """class that handle all the orders"""
     order_id = models.AutoField(primary_key=True)
     items_json =  models.CharField(max_length=5000)
-    amount = models.IntegerField(default=0)
+    amount = models.DecimalField(max_digits=10, decimal_places=2, default=0.00)
     name = models.CharField(max_length=90)
     email = models.CharField(max_length=90)
     address1 = models.CharField(max_length=200)
@@ -46,6 +46,7 @@ class Orders(models.Model):
         return self.name
 
 
+
 """
 class OrderUpdate(models.Model):
     Handling the orderupdate
@@ -57,7 +58,9 @@ class OrderUpdate(models.Model):
 
     def __str__(self):
         return self.update_desc[0:7] + "..."
+
 """
+
 
 class OrderUpdate(models.Model):
     """Handling the orderupdate"""

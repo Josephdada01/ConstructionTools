@@ -1,42 +1,35 @@
 {% extends "base.html" %}
 {% block title %}Log-in{% endblock title %}
 {% block content %}
-<div class="card bg-light p-5" >
+<div class="card bg-primary text-white p-5">
 
-<!-- raiseing error message if the passwords are wrong-->
+<!-- raising error message if the passwords are wrong-->
     {% for message in messages %}
     <div class="alert alert-{{message.tags}} alert-dismissible fade show" role="alert">
     <strong>{{message}}</strong>
-    <button type="button" class="btn-close" data-bs-dismissible="alert" arial-label="close"></button>
+    <button type="button" class="btn-close" data-bs-dismissible="alert" aria-label="close"></button>
     </div>
     {% endfor %}
+<h4 class="text-dark">Log In</h4>
 
-
-<h4 class = "text-dark" >Log In</h4>
-
-<form action="/auth/login/" method="post">{% csrf_token %}
-  <br>
-
-
-  <label for="email"><em>Email:</em></label>
-  <div class="form-group">
-  <input type="email" class="form-control p-2" id="email" name="email" required>
+<form action="/auth/login/" method="post" class="mt-4">{% csrf_token %}
+  <div class="mb-3">
+    <label for="email" class="form-label"><em>Email:</em></label>
+    <input type="email" class="form-control" id="email" name="email" required>
   </div>
 
-  <label for="pass_word"><em>Password</em></label>
-  <div class="form-group">
-  <input type="password" class="form-control p-2" id="pass_word" name="pass_word" required>
+  <div class="mb-3">
+    <label for="pass_word" class="form-label"><em>Password:</em></label>
+    <input type="password" class="form-control" id="pass_word" name="pass_word" required>
   </div>
-
  
-  <button type="submit" class="btn btn-dark">Log In</button>
+  <button type="submit" class="btn btn-dark btn-block">Log In</button>
   <br>
-  <span>Forget Password? <a href="/auth/request-reset-email/">Reset</a></span>
+  <span class="text-white">Forget Password? <a href="/auth/request-reset-email/" class="text-dark">Reset</a></span>
   <br>
 
   <br>
-  Are you a new User? <a href="/auth/signup/">Sign Up</a>
-  <br>
+  <span class="text-white">Are you a new User? <a href="/auth/signup/" class="text-dark">Sign Up</a></span>
 </form>
 
 </div>

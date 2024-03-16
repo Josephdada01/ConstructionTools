@@ -49,18 +49,25 @@
       
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a class="nav-link scrollto active"  style="color: #1B1A55; font-weight: bold; font-size: 20px" href="/">Home</a></li>
-          <li><a class="nav-link scrollto" style="color: #1B1A55; font-weight: bold; font-size: 17px" href="/blog">Blog</a></li>
-          <li><a class="nav-link scrollto" style="color: #1B1A55; font-weight: bold; font-size: 17px"href="/about">About Us</a></li>
-          <li><a class="nav-link scrollto" style="color: #1B1A55; font-weight: bold; font-size: 17px"href="/checkout">Checkout</a></li>
-          <li><a class="nav-link scrollto" style="color: #1B1A55; font-weight: bold; font-size: 17px"href="/profile">My Profile<i class="fa-regular fa-square-user"></i> </a></li>
+          <li><a class="nav-link scrollto active"  style="color: #fff; font-weight: bold; font-size: 20px" href="/">Home</a></li>
+          <li><a class="nav-link scrollto" style="color: #fff; font-weight: bold; font-size: 17px" href="/blog">Blog</a></li>
+          <li><a class="nav-link scrollto" style="color: #fff; font-weight: bold; font-size: 17px"href="/about">About Us</a></li>
+          <li><a class="nav-link scrollto" style="color: #fff; font-weight: bold; font-size: 17px"href="/checkout">Checkout</a></li>
+          <li><a class="nav-link scrollto" style="color: #fff; font-weight: bold; font-size: 17px"href="/profile">My Profile<i class="fa-regular fa-square-user"></i> </a></li>
           <!--<li><a class="nav-link scrollto bg-danger p-2 m-3" href="">Cart</a></li>-->
           <!-- for cart button design-->
           <!--<button type="button" class="nav-link scrollto " id="popcart" data-container="body" data-toggle="popover" data-placement="bottom" data-html="true" ><i class="fa-solid fa-cart-shopping"></i>  Cart (<span id="cart">0</span>)
           </button>-->
-          <<button type="button" class="nav-link scrollto" id="popcart" data-container="body" data-toggle="popover" data-placement="bottom" data-html="true" style="background-color: #1B1A55; color: #fff; border: none; border-radius: 8px; padding: 10px 20px; font-size: 16px; font-weight: bold; cursor: pointer;">
+          <button type="button" class="nav-link scrollto bg-danger" id="popcart" data-container="body" data-toggle="popover" data-placement="bottom" data-html="true" style="background-color: #1B1A55; color: #fff; border: none; border-radius: 8px; padding: 10px 20px; font-size: 16px; font-weight: bold; cursor: pointer;">
               <i class="fa-solid fa-cart-shopping" style="margin-right: 10px;"></i>Cart (<span id="cart" style="font-weight: normal;">0</span>)
           </button>
+
+          <li>
+              <a class="nav-link scrollto bg-danger" href="/contact" style="background-color: #1B1A55; color: #fff; padding: 0.65rem 1rem; font-weight: bold; margin: 0.5rem; border-radius: 6px; text-decoration: none; display: flex; align-items: center;">
+                Contact 
+                <i class="fa-solid fa-message-middle" style="margin-left: 5px;"></i>
+              </a>
+            </li>
 
 
           {% if request.user.is_authenticated  %}
@@ -85,13 +92,6 @@
             </ul>
           </li>
           {% endif %}
-          
-            <li>
-              <a class="nav-link scrollto" href="/contact" style="background-color: #1B1A55; color: #fff; padding: 0.65rem 1rem; font-weight: bold; margin: 0.5rem; border-radius: 6px; text-decoration: none; display: flex; align-items: center;">
-                Contact 
-                <i class="fa-solid fa-message-middle" style="margin-left: 5px;"></i>
-              </a>
-            </li>
 
           
         </ul>
@@ -121,7 +121,66 @@
   </main>
     
   <!-- ======= Footer ======= -->
-  <footer id="footer">
+  <footer id="footer" style="background-color: #1B1A55; color: #ffffff; padding: 60px 0;">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-lg-4 col-md-6 footer-contact">
+                <h3 style="color: #ffffff;">ConstructionTools</h3>
+                <p>
+                    Peaceland Estate <br>
+                    Adesanya, Lagos<br>
+                    Nigeria <br><br>
+                    <strong style="color: #ffffff;">Phone:</strong> +234 8124666993<br>
+                    <strong style="color: #ffffff;">Email:</strong> ridwandada500@gmail.com<br>
+                </p>
+            </div>
+
+            <div class="col-lg-4 col-md-6 footer-links">
+                <h4>Useful Links</h4>
+                <ul>
+                    <li><a href="/" style="color: #ffffff;">Home</a></li>
+                    <li><a href="/about" style="color: #ffffff;">About us</a></li>
+                    <li><a href="#" style="color: #ffffff;">Blog</a></li>
+                    <li><a href="#" style="color: #ffffff;">Terms of service</a></li>
+                    <li><a href="#" style="color: #ffffff;">Privacy policy</a></li>
+                </ul>
+            </div>
+
+            <div class="col-lg-4 col-md-6 footer-links">
+                <h4>Our Services</h4>
+                <ul>
+                    <li><a href="#" style="color: #ffffff;">We Sell Quality Tools</a></li>
+                    <li><a href="#" style="color: #ffffff;">Connect you to Artisans</a></li>
+                    <li><a href="#" style="color: #ffffff;">We Do Buildin Finishing</a></li>
+                    <li><a href="#" style="color: #ffffff;">SoftWare Engineering</a></li>
+                    <!--<li><a href="#" style="color: #ffffff;">Graphic Design</a></li>-->
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="container py-4" style="background-color: #070F2B; border-radius: 12px">
+        <div class="row">
+            <div class="col-md-6 p-2 text-center text-md-start">
+                <div class="credits" style="color: #fff; font-size: normal; font-weight: bold;">
+                  <p>Built by: Ridwan Dada</p>
+                  <p>Follow me on Twitter, Linkedin, and Github </p>
+
+                </div>
+            </div>
+            <div class="col-md-6 text-center text-md-end">
+                <div class="social-links" style="background-color: transparent;">
+                    <a href="https://x.com/Joe_self_phu?t=fZWs8fmC5anMqWh3YzkrxA&s=09" class="twitter"><i class="bx bxl-twitter"></i></a>
+                    <a href="https://github.com/Josephdada01" class="github"><i class="bx bxl-github"></i></a>
+                    <a href="https://www.linkedin.com/in/dada-joseph-484040263" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+  <!--<footer id="footer">
 
     <div class="footer-top">
       <div class="container">
@@ -166,7 +225,7 @@
             <form action="" method="post">
               <input type="email" name="email"><input type="submit" value="Subscribe">
             </form>
-          </div>-->
+          </div>
 
         </div>
       </div>
@@ -181,7 +240,7 @@
     <div class="credits">
         Built by: <em>Ridwan Dada</em>
         <p>You can follow me on Twitter, Linkedin, and also check my work on Github </p>
-        <!-- <a href="">Ridwan Dada. And thats my Socials</a> -->
+        <!-- <a href="">Ridwan Dada. And thats my Socials</a> 
     </div>
     </div>
       <div class="social-links text-center text-md-right pt-3 pt-md-0">
@@ -191,9 +250,11 @@
       </div>
 
     </div>
-  </footer><!-- End Footer -->
+  </footer><!--End Footer-->
 
-  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  <!--<a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>-->
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center" style="background-color: #3652AD; color: #fff;"><i class="bi bi-arrow-up-short" style="color: #fff;"></i></a>
+
 
   <!-- Vendor JS Files -->
   <script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>

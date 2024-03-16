@@ -4,15 +4,23 @@ Check Out
 {% endblock title %} 
 
 {% block content %}
-<!-- Content: Welcome message -->
-<h1>Thank you for shopping with us, this is the checkout page</h1>
-{% endblock content %} 
+<!-- Content: Checkout message -->
+<div class="container">
+    <div class="row">
+        <div class="col-md-7 mb-4 mb-md-0">
+            <h3 style="color: #fff; font-weight: bold;">Finalize Your Purchase with Confidence</h3>
+            <p style="color: #fff; font-weight: 900;">You're just steps away from completing your order and transforming your projects. Our marketplace offers premium tools trusted by professionals like you. Shop with confidence and elevate your construction endeavors today.</p>
+        </div>
+    </div>
+</div>
+{% endblock content %}
+
 
 {% block body %} 
 {% load static %}
 
 <!-- ======= Portfolio Section ======= -->
-<section id="portfolio" class="portfolio">
+<section id="portfolio" class="portfolio" style="background: linear-gradient(45deg, #3A9DFF, #3F51B5, #7F8C8D);">
   <div class="container">
     <!-- Iterate over messages to display alerts -->
     {% for message in messages %}
@@ -23,20 +31,111 @@ Check Out
     {% endfor %}
 
     <!-- Section title -->
-    <div class="section-title">
-      <h2>ConstructionTools Welcome you</h2>
-      <h3>Checkout Page </h3>
+    <div class="section-title text-center mb-5">
+      <h3 style="color: #ffffff;">Checkout...</h3>
     </div>
 
     <!-- Step 1: Review Cart Items -->
-    <div class="container">
-      <div class="col my-4">
-        <h2>First Step: Review Your Cart Items</h2>
+    <div class="row">
+      <div class="col-md-6 my-4">
+        <h2 style="color: #ffffff;">Review Your Cart</h2>
         <div class="my-4">
           <!-- Display cart items -->
           <ul class="list-group" id="items"></ul>
           
           <!-- Cart total information -->
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb mt-3" style="color: #ffffff;">
+              <li class="breadcrumb-item active" aria-current="page" style="font-weight: bold; color: #fff">Total Price: <b>$ <span id="totalprice">{{ totalPrice }}</span></b> </li> 
+            </ol>
+          </nav>
+        </div>
+      </div>
+
+      <!-- Step 2: Enter Address & Other Details -->
+      <div class="col-md-6 my-4">
+        <h2 style="color: #ffffff;">Enter required Details..</h2>
+        <!-- Checkout form -->
+        <form method="post" action="/checkout/">{% csrf_token %}
+          <!-- Hidden fields to submit cart items and total amount -->
+          <input type="hidden" name="itemsJson" id="itemsJson">
+          <input type="hidden" id="amt" name="amt">
+          
+          <!-- Personal information fields -->
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="inputname" style="color: #ffffff;">Name:</label>
+              <input type="text" class="form-control mt-3" id="name" name="name" placeholder="John Doe" required>
+            </div>
+            <div class="form-group col-md-6">
+              <label for="inputEmail4" style="color: #ffffff;">Email:</label>
+              <input type="email" class="form-control mt-3" id="email" name="email" placeholder="Email" value="{{user.email}}" required>
+            </div>
+          </div>
+          
+          <!-- Address fields -->
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="inputAddress" style="color: #ffffff;">Address:</label>
+              <input type="text" class="form-control mt-3" id="address1" name="address1" placeholder="1234, Agbabiaka" required>
+            </div>
+          </div>
+          
+          <!-- City, State, Pin Code, and Phone Number fields -->
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="inputCity" style="color: #ffffff;">City:</label>
+              <input type="text" class="form-control mt-3" id="city" name="city" placeholder="City" required>
+            </div>
+            <div class="form-group col-md-6">
+              <label for="inputState" style="color: #ffffff;">State:</label>
+              <input type="text" class="form-control mt-3" id="state" name="state" placeholder="Your State" required>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="inputZip" style="color: #ffffff;">Post Code:</label>
+              <input type="number" class="form-control mt-3" id="zip_code" name="zip_code" required>
+            </div>
+            <div class="form-group col-md-6">
+              <label for="inputPhone" style="color: #ffffff;">Phone Number:</label>
+              <input type="tel" class="form-control mt-3" id="phone" name="+234...." required>
+            </div>
+          </div>
+          
+          <!-- Place Order button -->
+          <button id="btn" type="submit" class="btn btn-sm btn-block col-md-4 mt-4" style="background-color: #1B1A55; color: #ffffff; border: none; border-radius: 8px; font-size: 16px; font-weight: bold; text-transform: uppercase; padding: 12px;">Place Order</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!--<section id="portfolio" class="portfolio">
+  <div class="container">
+    <!-- Iterate over messages to display alerts 
+    {% for message in messages %}
+    <div class="alert alert-{{message.tags}} alert-dismissible fade show" role="alert">
+      <strong>{{message}}</strong>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {% endfor %}
+
+    <!-- Section title 
+    <div class="section-title">
+      <h2>ConstructionTools Welcome you</h2>
+      <h3>Checkout Page </h3>
+    </div>
+
+    <!-- Step 1: Review Cart Items 
+    <div class="container">
+      <div class="col my-4">
+        <h2>First Step: Review Your Cart Items</h2>
+        <div class="my-4">
+          <!-- Display cart items --
+          <ul class="list-group" id="items"></ul>
+          
+          <!-- Cart total information 
           <nav aria-label="breadcrumb">
             <ol class="breadcrumb mt-3">
               <li class="breadcrumb-item active" aria-current="page">Total Price: <b>$ <span id="totalprice">{{ total_price }}</span></b>. Enter your details below & place your order. Thanks for using Shopping Cart</li>
@@ -45,16 +144,16 @@ Check Out
         </div>
       </div>
 
-      <!-- Step 2: Enter Address & Other Details -->
+      <!-- Step 2: Enter Address & Other Details --
       <div class="col my-4">
         <h2>Second Step: Enter Your Address & Other Details:</h2>
-        <!-- Checkout form -->
+        <!-- Checkout form --
         <form method="post" action="/checkout/">{% csrf_token %}
-          <!-- Hidden fields to submit cart items and total amount -->
+          <!-- Hidden fields to submit cart items and total amount --
           <input type="hidden" name="itemsJson" id="itemsJson">
           <input type="hidden" id="amt" name="amt">
           
-          <!-- Personal information fields -->
+          <!-- Personal information fields --
           <div class="form-row">
             <div class="form-group col-md-6">
               <label for="inputname">Name:</label>
@@ -66,7 +165,7 @@ Check Out
             </div>
           </div>
           
-          <!-- Address fields -->
+          <!-- Address fields --
           <div class="form-row">
             <div class="form-group col-md-6">
               <label for="inputAddress">Address:</label>
@@ -78,7 +177,7 @@ Check Out
             </div>
           </div>
           
-          <!-- City, State, Pin Code, and Phone Number fields -->
+          <!-- City, State, Pin Code, and Phone Number fields --
           <div class="form-row">
             <div class="form-group col-md-6">
               <label for="inputCity">City:</label>
@@ -100,7 +199,7 @@ Check Out
             </div>
           </div>
           
-          <!-- Place Order button -->
+          <!-- Place Order button --
           <button id="btn" type="submit" class="btn btn-success btn-sm btn-block col-md-4">Place Order</button>
         </form>
       </div>
@@ -128,7 +227,9 @@ var sum = 0;
 var totalPrice = 0;
 if ($.isEmptyObject(cart)) {
     // If cart is empty, display a message
-    mystr = `<p>Your cart is empty, please add some items to your cart before checking out!</p>`
+    mystr = `<p style="color: #fff; font-size: 18px; font-weight: bold;
+    text-align: center; padding: 20px; background-color: #1B1A55; border-radius: 5px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">Empty cart, add some items to your cart before checking out!</p>`
+
     $('#items').append(mystr);
 } else {
     // Iterate over cart items and display them
@@ -136,24 +237,23 @@ if ($.isEmptyObject(cart)) {
         let name = cart[item][1];
         let qty = cart[item][0];
         let itemPrice = cart[item][2];
-        sum = sum + qty;
-        totalPrice = totalPrice + qty * itemPrice;
+        sum += qty;
+        totalPrice += qty * itemPrice;
 
         mystr = `<li class="list-group-item d-flex justify-content-between align-items-center">
                     ${name}
                     <div><b> Price : ${itemPrice}</b></div>
                     <span class="badge badge-primary badge-pill">${qty}</span>
-                </li>`
+                </li>`;
         $('#items').append(mystr);
     }
     // Update total price
-    $('#totalprice').text(totalPrice); // Update total price
+    $('#totalprice').text(totalPrice.toFixed(2)); // Update total price with 2 decimal places
 }
 
 // Set hidden fields to submit cart items and total price
 $('#itemsJson').val(JSON.stringify(cart));
-var test = `${totalPrice}`;
-$('#amt').val(test);
+$('#amt').val(totalPrice.toFixed(2)); // Set total price to 2 decimal places
 
 // If thank variable exists (order placed), display a thank you message and clear cart
 {% if thank %}
@@ -161,9 +261,10 @@ alert('Thanks for ordering with us. Your order is is {{id}}. Use it to track you
 localStorage.clear();
 document.location = "/";
 {% endif %}
+
 </script>
 
-<!-- JavaScript code for cart functionality
+<!--JavaScript code for cart functionality--
 <script>
 // Check if cart exists in local storage, initialize if not
 if (localStorage.getItem('cart') == null) {
@@ -210,6 +311,6 @@ alert('Thanks for ordering with us. Your order is is {{id}}. Use it to track you
 localStorage.clear();
 document.location = "/";
 {% endif %}
-</script>
+</script>-->
 
-{% endblock body %} -->
+{% endblock body %} 

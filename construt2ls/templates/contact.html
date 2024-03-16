@@ -1,53 +1,53 @@
 {% extends "base.html" %}
-{% block title %} contact {% endblock title %}
+{% block title %}Contact{% endblock title %}
 {% block body %}
-<h1 class = "text-center"> Contact Us </h1>
-
-<div class = "container mt-2">
-
-    {% for message in messages %}
-
-    <div class="alert alert-{{message.tags}} alert-dismissible fade show" role="alert">
-    <strong>{{message}}</strong>
-    <button type="button" class="btn-close" data-bs-dismiss="alert" arial-label="close"></button>
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-7 mb-4 mb-md-0">
+            <h3 style="color: #fff; font-weight: bold;">Contact Us</h3>
+            <p style="color: #fff; font-weight: 900;">At ConstructionTools, we value your feedback and are committed to providing excellent customer service. Your satisfaction is our priority, and we're here to address any questions, comments, or concerns you may have. Whether you're looking for assistance with an order, need product recommendations, or simply want to share your experience with us, we're ready to listen. Our dedicated team is available to help you every step of the way. Let's talk! Reach out to us today, and let's work together to ensure your construction needs are met with utmost satisfaction.</p>
+        </div>
     </div>
-    
+</div>
+{% endblock content %}
+
+<div class="container mt-2">
+    {% for message in messages %}
+    <div class="alert alert-{{message.tags}} alert-dismissible fade show" role="alert">
+        <strong>{{message}}</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="close"></button>
+    </div>
     {% endfor %}
     <div class="row">
     <div class="col-md-3"></div>
-    <div class="col-md-6">
-    <form action="/contact" method="post">{% csrf_token %}
-            <br>
-            <label for="name">Full Name:</label>
+    <div class="col-md-6" style="border: 1px solid #1B1A55; padding: 20px; border-radius: 10px;">
+        <form action="/contact" method="post">{% csrf_token %}
             <div class="form-group">
-                <input type="text" class="form-control p-2" id="name" name="name" value={{user.email}} required>
+                <label for="name">Full Name:</label>
+                <input type="text" class="form-control" id="name" name="name" value="{{user.email}}" required>
             </div>
-
-
-            <label for="email">Email:</label>
             <div class="form-group">
-                <input type="email" class="form-control p-2" id="email" name="email" required>
+                <label for="email">Email:</label>
+                <input type="email" class="form-control" id="email" name="email" required>
             </div>
-
-            <label for="desc">How do yo want us to help you?</label>
             <div class="form-group">
-                <textarea type="text" class="form-control p-2" id="desc" name="desc" required> </textarea>
+                <label for="desc">How can we assist you?</label>
+                <textarea class="form-control" id="desc" name="desc" rows="5" required></textarea>
             </div>
-
-            <label for="phone_number">Phone Number</label>
             <div class="form-group">
-                <input type="number" class="form-control p-2" id="phone_number" name="phone_number" required>
+                <label for="phone_number">Phone Number</label>
+                <input type="tel" class="form-control" id="phone_number" name="phone_number" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="Format: 123-456-7890" required>
+                <!-- This pattern attribute uses a regular expression to enforce the format 123-456-7890 for the phone number -->
             </div>
             <br>
-            <button type="submit" class="btn btn-dark">Submit</button>
+            <button type="submit" class="btn btn-dark btn-block">Submit</button>
             <br>
             <br>
             <br>
         </form>
-    
     </div>
     <div class="col-md-3"></div>
-    </div>
 </div>
-
-{% endblock body %} 
+</div>
+{% endblock body %}

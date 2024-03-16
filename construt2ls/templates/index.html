@@ -1,14 +1,14 @@
-{% extends "base.html" %}
- {% block title %}
- Home
- {% endblock title %} 
+{% extends 'base.html' %}
+{% block title %}
+Check Out
+{% endblock title %}
  {% block content %}
 
  <div class="container">
     <div class="row">
         <div class="col-md-7 mb-4 mb-md-0">
-            <h3 style="color: #ccc; font-weight: bold;">Elevate Your Projects with Quality Tools</h3>
-            <p style="color: #ccc; font-weight: 900;">Find the perfect tools to enhance your construction projects. Our marketplace offers a diverse range of premium equipment trusted by professionals. Start building with confidence today.</p>
+            <h3 style="color: #fff; font-weight: bold;">Elevate Your Projects with Quality Tools</h3>
+            <p style="color: #fff; font-weight: 900;">Find the perfect tools to enhance your construction projects. Our marketplace offers a diverse range of premium equipment trusted by professionals. Start building with confidence today.</p>
         </div>
     </div>
 </div>
@@ -18,7 +18,46 @@
 {% block body %} 
 {% load static %}
 <!-- ======= Portfolio Section ======= -->
-<section id="portfolio" class="portfolio">
+<section id="portfolio" class="portfolio" style="background-color: #FCFCFC; padding: 80px 0;">
+    <div class="container">
+        {% for message in messages %}
+        <div class="alert alert-{{message.tags}} alert-dismissible fade show" role="alert">
+            <strong>{{message}}</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="close"></button>
+        </div>
+        {% endfor %}
+
+        <div class="section-title text-center mb-5">
+            <h2 style="color: #1B1A55; font-size: 20px; font-weight: 900px; max-width: 900px;">Welcome To The Biggest Online Store for Your Construction Tools.</h2>
+            <h3 style="color: #1B1A55; font-size: 16px;">Check Available Products..</h3>
+        </div>
+
+        {% for product, range, nSlides in allprods %}
+        <h3 class="my-3 text-center " style="color: #1B1A55; padding: 10px;">{{product.0.category}} Section</h3>
+        <div class="row">
+            {% for i in product %}
+            <div class="col-md-3 mt-3">
+                <div class="card" style="background-color: #ffffff;">
+                    <img src="/media/{{i.image}}" class="card-img-top" alt="Product Image" style="height: 200px; object-fit: cover;">
+                    <div class="card-body">
+                        <h5 class="card-title mt-2" id="namepr{{i.id}}" style="color: #1B1A55; font-size: 20px;">{{i.product_name}}</h5>
+                        <p class="card-text" style="color: #283148;">{{i.desc|slice:"0:45"}}...</p>
+                        <h6 class="card-title mb-3" style="color: #1B1A55;">Price: <span id="pricepr{{i.id}}"> {{i.price}} </span></h6>
+                        <div class="divpr" id="divpr{{i.id}}">
+                            <button id="pr{{i.id}}" class="btn btn-dark btn-sm mt-0" style="color: #fff; border-color: #070F2B;">Add To Cart <i class="fa-solid fa-cart-shopping"></i></button>
+                        </div>
+                        <a href="/media/{{i.image}}" class="btn btn-dark btn-sm cart mt-2" style="color: #ffffff;">View <i class="fa-solid fa-eye"></i></a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        {% endfor %}
+    </div>
+</section>
+
+
+<!--<section id="portfolio" class="portfolio">
   <div class="container">
     {% for message in messages %}
 
@@ -37,10 +76,13 @@
 
     {% endfor %}
 
-    <div class="section-title">
-      <h2>Welcome To The Biggest online Store for your Construction Tools</h2>
-      <h3>Check our <span>Poducts</span></h3>
+    
+    <div class="section-title" style="text-align: center;">
+      <h2 style="font-size: 26px; color: #1B1A55; font-weight: bold; margin-bottom: 10px;">Welcome To The Biggest Online Store for Your Construction Tools</h2>
+      <h3 style="font-size: 24px; color: #283148; margin-bottom: 30px;">Check Our <span style="color: #FF5733;">Products</span></h3>
+      <a href="/products" style="background-color: #FF5733; color: #ffffff; padding: 10px 20px; border-radius: 5px; text-decoration: none; font-size: 18px;">Explore Now</a>
     </div>
+
 
     {% for product, range, nSlides in allprods %}
 
@@ -65,7 +107,7 @@
             </h5>
             <p class="card-text">{{i.desc|slice:"0:53"}}...</p>
             <h6 class="card-title mb-3">
-              Price:<span id="pricepr{{i.id}}"> {{i.price}}</span> <!-- this is the place i put the dollar sign -->
+              Price:<span id="pricepr{{i.id}}"> {{i.price}}</span> 
             </h6>
             <span id="divpr{{i.id}}" class="divpr">
               <button id="pr{{i.id}}" class="btn btn-danger cart btn-sm mt-0">
@@ -86,7 +128,7 @@
 
     {% endfor %}
   </div>
-</section>
+<!--</section>-->
 <!-- End Portfolio Section -->
 <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
@@ -104,7 +146,11 @@
   // add or increment code
 
   // $('.cart').click(function() {
-  $(".divpr").on("click", "button.cart", function () {
+  //$(".divpr").on("click", "button.cart", function () {
+  //  var idstr = this.id.toString();
+  //  console.log(idstr);
+
+  $(".container").on("click", ".divpr button", function () {
     var idstr = this.id.toString();
     console.log(idstr);
 
@@ -134,7 +180,7 @@
     var popStr = "";
     var popStr =
       popStr +
-      "<h5> cart for your items in my shopping cart </h5> <div class='mx-2 my-2'>";
+      "<h5> Your Goods </h5> <div class='mx-2 my-2'>";
     var i = 1;
     for (var item in cart) {
       popStr = popStr + "<b>" + i + "</b>. ";
@@ -152,7 +198,7 @@
 
     popStr =
       popStr +
-      "</div> <a href='/checkout'><button class='btn btn-success' id='clearCart'>Checkout</button></a>  <button class='btn btn-dark' onclick='clearCart()' id='clearCart'>ClearCart</button>";
+      "</div> <a href='/checkout'><button class='btn btn-success' id='clearCart'>Checkout</button></a>  <button class='btn btn-danger' onclick='clearCart()' id='clearCart'>ClearCart</button>";
     document.getElementById("popcart").setAttribute("data-content", popStr);
     $("#popcart").popover("show");
     document.getElementById("popcart").click();

@@ -1,24 +1,41 @@
 {% extends "base.html" %}
 {% block title %} About Us {% endblock title %}
+{% block content %}
+<!-- Content: Welcome message -->
+<div class="container">
+    <div class="row">
+        <div class="col-md-7 mb-4 mb-md-0">
+            <h3 style="color: #fff; font-weight: bold;">Elevate Your Projects with Quality Tools</h3>
+            <p style="color: #fff; font-weight: 900;">Find the perfect tools to enhance your construction projects. Our marketplace offers a diverse range of premium equipment trusted by professionals. Start building with confidence today.</p>
+        </div>
+    </div>
+</div>
+<!--<h1>Thank you for shopping with us, this is the checkout page</h1>-->
+{% endblock content %} 
+
 {% block body %}
-    <div class="container mt-4">
+{% load static %}
+    <section id="about" style="background: linear-gradient(45deg, #3498db, #2980b9); padding: 50px 0;">
+    <div class="container">
         <div class="row">
             <div class="col-md-8">
-                <h2>About Our Company</h2>
-                <p>Welcome to ConstructionTools, your trusted partner in providing top-notch construction tools and equipment. With a focus on quality and reliability, we cater to both individuals and construction companies across Nigeria and Africa.</p>
-                <p>Backed by years of experience and a dedication to excellence, we have earned the trust of numerous construction companies, making us a cornerstone in the industry. Our commitment to delivering only the best has not gone unnoticed, as we proudly hold several prestigious awards in recognition of our contributions to the construction sector.</p>
+                <h2 style="color: #fff;">About Our Company</h2>
+                <p style="color: #fff;">Welcome to ConstructionTools, your trusted partner in providing top-notch construction tools and equipment. With a focus on quality and reliability, we cater to both individuals and construction companies across Nigeria and Africa.</p>
+                <p style="color: #fff;">Backed by years of experience and a dedication to excellence, we have earned the trust of numerous construction companies, making us a cornerstone in the industry. Our commitment to delivering only the best has not gone unnoticed, as we proudly hold several prestigious awards in recognition of our contributions to the construction sector.</p>
             </div>
             <div class="col-md-4">
-                <div class="card p-3">
+                <div class="card p-3" style="background: rgba(255, 255, 255, 0.8); border: none;">
                     <h5>Our Address</h5>
-                    <p style="color: #35374B;">ConstructionTools</p>
-                    <p style="color: #35374B;">Peaceland Estate, Adesanya</p>
-                    <p style="color: #35374B;">Lagos</p>
-                    <p style="color: #35374B;">Nigeria.</p>
-                    <p style="color: #35374B;">Phone: +234 8124666993</p>
-                    <p style="color: #35374B;">Email:  ridwandada500@gmail.com</p>
+                    <p>ConstructionTools</p>
+                    <p>Peaceland Estate, Adesanya</p>
+                    <p>Lagos, Nigeria</p>
+                    <p>Phone: +234 8124666993</p>
+                    <p>Email: ridwandada500@gmail.com</p>
                 </div>
             </div>
         </div>
     </div>
+</section>
+
+
 {% endblock body %}
