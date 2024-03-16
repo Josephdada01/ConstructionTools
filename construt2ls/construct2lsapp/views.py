@@ -43,6 +43,10 @@ def about(request):
     return render(request, "about.html")
 
 
+def blog(request):
+    return render(request, "blog.html")
+
+
 def generate_unique_order_id():
     """
     Generate a unique order ID based on timestamp.
