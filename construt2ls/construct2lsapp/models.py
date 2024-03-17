@@ -65,7 +65,7 @@ class OrderUpdate(models.Model):
 class OrderUpdate(models.Model):
     """Handling the orderupdate"""
     update_id = models.AutoField(primary_key=True)
-    order = models.ForeignKey(Orders, on_delete=models.CASCADE)
+    order = models.ForeignKey(Orders, on_delete=models.CASCADE, default=None)
     update_desc = models.CharField(max_length=5000)
     delivered = models.BooleanField(default=False)
     timestamp = models.DateField(auto_now_add=True)

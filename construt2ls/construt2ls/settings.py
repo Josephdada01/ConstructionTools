@@ -69,7 +69,9 @@ WSGI_APPLICATION = 'construt2ls.wsgi.application'
 # Configure Django to use the Heroku PostgreSQL database
 DATABASES = {
     'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
+
 }
+print(os.environ.get('DATABASE_URL'))
 
 # Remove the default SQLite database configuration
 if 'sqlite3' in DATABASES['default']['ENGINE']:
