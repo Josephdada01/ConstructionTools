@@ -3,7 +3,6 @@ attrs==23.2.0
 autopep8==2.0.4
 beautifulsoup4==4.10.0
 blinker==1.7.0
-catfish==4.16.3
 certifi==2024.2.2
 cffi==1.15.0
 chardet==4.0.0
