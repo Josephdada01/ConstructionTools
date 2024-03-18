@@ -7,9 +7,10 @@ from django.views.generic import View
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 from django.utils.encoding import force_bytes, force_str
 
-
+# Get the user model
 User = get_user_model()
 
+# View for user signup
 def signup(request):
     if request.method == "POST":
         email = request.POST['email']
@@ -19,6 +20,7 @@ def signup(request):
             messages.warning(request, "Password not Matching")
             return render(request, 'signup.html')
         
+        # Attempt to create a new user or get existing user
         user, created = User.objects.get_or_create(username=email, email=email)
         if created:
             user.set_password(password)
@@ -33,6 +35,7 @@ def signup(request):
     return render(request, "signup.html")
 
 
+# View for user login
 def handlelogin(request):
     if request.method == "POST":
         username = request.POST['email']
@@ -49,14 +52,14 @@ def handlelogin(request):
     return render(request, 'login.html')
 
 
+# View for user logout
 def handlelogout(request):
-    # Django's logout function clears the user's session
-    # and logs them out.
     logout(request)
     messages.info(request, "You have successfully logged out")
     return redirect('/auth/login')
 
 
+# View for requesting a password reset email
 class RequestResetEmailView(View):
     def get(self, request):
         return render(request, 'request-reset-email.html')
@@ -89,6 +92,7 @@ class RequestResetEmailView(View):
         return render(request, 'request-reset-email.html')
 
 
+# View for setting a new password
 class SetNewPasswordView(View):
     def get(self, request, uidb64, token):
         context = {
@@ -108,6 +112,7 @@ class SetNewPasswordView(View):
             return redirect('/auth/login/')  # Redirect to login page
 
         return render(request, 'set-new-password.html', context)
+    
 
     def post(self, request, uidb64, token):
         context = {

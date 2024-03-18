@@ -57,78 +57,7 @@ Check Out
 </section>
 
 
-<!--<section id="portfolio" class="portfolio">
-  <div class="container">
-    {% for message in messages %}
 
-    <div
-      class="alert alert-{{message.tags}} alert-dismissible fade show"
-      role="alert"
-    >
-      <strong>{{message}}</strong>
-      <button
-        type="button"
-        class="btn-close"
-        data-bs-dismiss="alert"
-        arial-label="close"
-      ></button>
-    </div>
-
-    {% endfor %}
-
-    
-    <div class="section-title" style="text-align: center;">
-      <h2 style="font-size: 26px; color: #1B1A55; font-weight: bold; margin-bottom: 10px;">Welcome To The Biggest Online Store for Your Construction Tools</h2>
-      <h3 style="font-size: 24px; color: #283148; margin-bottom: 30px;">Check Our <span style="color: #FF5733;">Products</span></h3>
-      <a href="/products" style="background-color: #FF5733; color: #ffffff; padding: 10px 20px; border-radius: 5px; text-decoration: none; font-size: 18px;">Explore Now</a>
-    </div>
-
-
-    {% for product, range, nSlides in allprods %}
-
-    <h3 class="my-3 text-center text-success bg-light">
-      {{product.0.category}} Flashsale
-    </h3>
-
-    <div class="container">
-      <div class="row">
-        {% for i in product %}
-        <div class="col-md-3 mt-3">
-          <img
-            src="/media/{{i.image}}"
-            class="card-img-top"
-            alt="not found"
-            height="200px"
-            width="150px"
-          />
-          <div class="card-body">
-            <h5 class="card-title mt-2" id="namepr{{i.id}}">
-              {{i.product_name}}
-            </h5>
-            <p class="card-text">{{i.desc|slice:"0:53"}}...</p>
-            <h6 class="card-title mb-3">
-              Price:<span id="pricepr{{i.id}}"> {{i.price}}</span> 
-            </h6>
-            <span id="divpr{{i.id}}" class="divpr">
-              <button id="pr{{i.id}}" class="btn btn-danger cart btn-sm mt-0">
-                Add To Cart <i class="fa-solid fa-cart-shopping"></i>
-              </button>
-            </span>
-
-            <a href="/media/{{i.image}}">
-              <button class="btn btn-dark btn-sm cart">
-                View <i class="fa-solid fa-eye"></i></button
-            ></a>
-          </div>
-        </div>
-
-        {% endfor %}
-      </div>
-    </div>
-
-    {% endfor %}
-  </div>
-<!--</section>-->
 <!-- End Portfolio Section -->
 <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
