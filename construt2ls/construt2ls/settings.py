@@ -70,11 +70,22 @@ WSGI_APPLICATION = 'construt2ls.wsgi.application'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
 # Configure Django to use the Heroku PostgreSQL database
-DATABASES = {
-    'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
+#DATABASES = {
+    #'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
 
+#}
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'd220p2sv2rstti',  # Replace with your database name
+        'USER': 'fhzswipzctunwa',  # Replace with your database user
+        'PASSWORD': '5319184c8854cfcc1f9e4704931e00cca8962b228c00ba2667cf7544a6a576b0',  # Replace with your database password
+        'HOST': 'ec2-34-232-92-61.compute-1.amazonaws.com',
+        'PORT': '5432',
+    }
 }
-print(os.environ.get('DATABASE_URL'))
+
+
 
 # Remove the default SQLite database configuration
 if 'sqlite3' in DATABASES['default']['ENGINE']:
@@ -121,6 +132,9 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
+
+# Directory where Django will collect static files
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # Define the directory for storing media files
 MEDIA_URL = '/media/'
