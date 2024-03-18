@@ -17,7 +17,10 @@ SECRET_KEY = os.environ.get('SECRET_KEY', '3b5318491117a0b9319903575eeb698458b15
 DEBUG = os.environ.get('DEBUG', 'False').lower() == 'false'
 
 # Define allowed hosts for your Django app
-ALLOWED_HOSTS = [os.environ.get('HOST', 'https://constructiontools-6c61a89d4fa2.herokuapp.com')]
+# ALLOWED_HOSTS = [os.environ.get('HOST', 'https://constructiontools-6c61a89d4fa2.herokuapp.com')]
+
+ALLOWED_HOSTS = ['constructtechpro.tech', 'www.constructtechpro.tech']
+
 
 # Application definition
 
