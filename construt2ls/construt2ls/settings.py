@@ -14,7 +14,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get('SECRET_KEY', '3b5318491117a0b9319903575eeb698458b15d3e71e28e12')
 
 # Set DEBUG to False for production
-DEBUG = os.environ.get('DEBUG', 'False').lower() == 'false'
+DEBUG = os.environ.get('DEBUG', 'True').lower() == 'true'
 
 # Define allowed hosts for your Django app
 # ALLOWED_HOSTS = [os.environ.get('HOST', 'https://constructiontools-6c61a89d4fa2.herokuapp.com')]
