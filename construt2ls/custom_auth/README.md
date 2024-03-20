@@ -1,1 +1,1 @@
-This directory is the directory that handle all my authentication logic
+This directory is the directory that handle all my authentication logic, yeah.
